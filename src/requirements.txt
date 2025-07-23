@@ -1,0 +1,4 @@
+transformers==4.41.2
+torch==2.3.0
+pillow==10.3.0
+fiftyone==0.23.6
