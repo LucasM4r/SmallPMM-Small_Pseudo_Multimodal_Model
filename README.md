@@ -14,6 +14,16 @@ A integração de modelos de detecção de objetos e LLMs permite uma compreens�
 - **LLM (Large Language Model):** Responsável por gerar descrições textuais a partir das informações extraídas pelo DETR.
 - **FiftyOne:** Ferramenta para visualização, avaliação e manipulação de datasets de visão computacional.
 
+## Modelos Utilizados
+
+### Modelo de Detecção de Objetos
+
+O `detection_model.py` utiliza o modelo `facebook/detr-resnet-50` da biblioteca Hugging Face Transformers para detecção de objetos. Este modelo é baseado na arquitetura DETR (Detection Transformer) com um backbone ResNet-50, conhecido por sua eficácia na detecção de objetos de ponta a ponta.
+
+### Modelo de Linguagem
+
+O `language_model.py` emprega o modelo `tiiuae/falcon-rw-1b` para a geração de descrições textuais a partir das detecções de objetos. Este é um modelo de linguagem grande (LLM) que, apesar de ser mais leve que outros modelos da família Falcon, é capaz de gerar texto coerente e descritivo.
+
 ## Instalação
 
 1. Clone o repositório:
@@ -50,13 +60,16 @@ O sistema irá:
 ## Estrutura do Projeto
 
 ```
-multimodal_detr_llm_based_image_to_text_architecture/
-│
-├── src/
-│   └── detr_resnet_model.py
-├── requirements.txt
+.
+├── LICENSE
 ├── README.md
-└── venv/
+└── src/
+    ├── __pycache__/
+    ├── detection_model.py
+    ├── detr_resnet_model.py
+    ├── language_model.py
+    ├── requirements.txt
+    └── venv/
 ```
 
 ## Requisitos
@@ -67,7 +80,14 @@ multimodal_detr_llm_based_image_to_text_architecture/
 - Pillow
 - FiftyOne
 
+## Próximos Passos
+
+- **Melhoria dos Templates de Prompt**: Desenvolver templates de prompt mais eficazes para o modelo de linguagem, visando maior fluidez e descritividade nas legendas geradas.
+- **Seleção de LLM**: Avaliar e selecionar um modelo de linguagem mais adequado que atenda aos requisitos de desempenho em prompts curtos e estruturados, geração de sentenças coerentes e descritivas, e que seja leve para o projeto SmallPMM.
+
 ## Referências
 
 - [DETR: End-to-End Object Detection with Transformers](https://arxiv.org/abs/2005.12872)
 - [Hugging Face Transformers](https://huggingface.co/transformers/)
+
+
